@@ -1,23 +1,25 @@
-* Raiz
-    * Long id
-    * Crear evento
-
-* Voluntario
-    * Long id
-    * Unirse a evento
-
-* Perfil
+* Usuario 
     * Long id
     * String nombre
     * String email
+    * TipoUsuario tipo (JOVEN, MAYOR)
+    * asociaciones:
+        * Perfil OnetoOne
+        * Evento OnetoMany
+
+* Perfil
+    * Long id
     * String descripcion
     * Intereses intereses (enum: pasear, cartas)
     * Disponibiliadad disponibilidad (enum: MAÑANA, TARDE, INDIFERENTE)
+    * asociaciones:
+        * Usuario OnetoOne
 
-* Solicitud
+* Evento
     * Long id
     * String titulo
     * String descripcion
-    * Creada por (usuario mayor)
-    * Voluntario (usuario joven)
     * Estado estado (enum: ABIERTA, CERRADA)
+    * asociaciones:
+        * Usuario creador ManytoOne
+        * Usuario voluntario
